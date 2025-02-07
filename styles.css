@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+/* 🌟 Definição para Mobile (Padrão) */
+:root {
+  --color-text-cta: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --color-text-cta: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+  font-family: "Inter", sans-serif;
+  color: var(--color-text-cta);
+}
+
+#container {
+  width: 100%;
+  max-width: 36.75rem;
+  margin: 3.5rem auto;
+  padding: 0 1.5rem;
+}
+
+/* 📌 Profile */
+#profile {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+#profile img {
+  width: 7rem;
+  border-radius: 50%;
+}
+
+#profile p {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+/* 📌 Switch */
+#switch {
+  position: relative;
+  width: 4rem;
+  margin: 0.25rem auto;
+}
+
+#switch button {
+  width: 2rem;
+  height: 2rem;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: slide-back 0.4s;
+}
+
+.light #switch button {
+  animation: slide-in 0.4s forwards;
+}
+
+#switch span {
+  display: block;
+  width: 4rem;
+  height: 1.5rem;
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 999px;
+}
+
+/* 📌 Links */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1px solid var(--color-text-cta);
+}
+
+/* 📌 Social Links */
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+  font-size: 1.5rem;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: background 0.3s;
+
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+/* 📌 Footer */
+footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* 🌟 Ajustes para Desktop */
+@media (min-width: 1024px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+
+  #container {
+    width: 30rem;
+  }
+
+  #switch {
+    cursor: pointer;
+  }
+
+  #switch button {
+    width: 2rem;
+    height: 2rem;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: slide-back 0.4s;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+
+  #switch button:hover {
+    box-shadow: 0 0 0 8px var(--highlight-color);
+  }
+
+  .light #switch button {
+    animation: slide-in 0.4s forwards;
+  }
+
+  #profile img {
+    width: 9rem;
+  }
+
+  ul li a {
+    font-size: 1.1rem;
+    padding: 1.2rem 2rem;
+  }
+
+  #social-links a {
+    font-size: 1.75rem;
+  }
+}
+
+/* Animation */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
